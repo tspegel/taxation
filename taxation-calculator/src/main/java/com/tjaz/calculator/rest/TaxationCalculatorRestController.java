@@ -13,11 +13,7 @@ public class TaxationCalculatorRestController {
     public TaxationOutput addSubject(@RequestParam(value = "traderId") final String traderId,
                                      @RequestParam(value = "playedAmount") final String playedAmount,
                                      @RequestParam(value = "odd") final String odd) {
-        return new TaxationOutput("dasd",
-                                  "dasd",
-                                  "dsadas",
-                                  "dsadas",
-                                  "dsadas");
+        return null;
     }
 
 }
