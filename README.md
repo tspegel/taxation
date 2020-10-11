@@ -48,13 +48,13 @@ or
 #### Odd: 1.5
 
 ##### Type: General, Method: Rate 
-```POST http://localhost:8080/taxation/taxation-calculator?traderId=1&playedAmount=5&odd=1.5```
+```POST http://localhost:8080/taxation/taxation-calculatortraderId=1&playedAmount=5&odd=1.5```
 ##### Type: General, Method: Amount 
-```POST http://localhost:8080/taxation/taxation-calculator?traderId=2&playedAmount=5&odd=1.5```
+```POST http://localhost:8080/taxation/taxation-calculatortraderId=2&playedAmount=5&odd=1.5```
 ##### Type: Winning, Method: Rate 
-```POST http://localhost:8080/taxation/taxation-calculator?traderId=3&playedAmount=5&odd=1.5```
+```POST http://localhost:8080/taxation/taxation-calculatortraderId=3&playedAmount=5&odd=1.5```
 ##### Type: Winning, Method: Amount 
-```POST http://localhost:8080/taxation/taxation-calculator?traderId=4&playedAmount=5&odd=1.5```
+```POST http://localhost:8080/taxation/taxation-calculatortraderId=4&playedAmount=5&odd=1.5```
 
 ### Footnote
 + Debug port is open on 8787
@@ -64,19 +64,13 @@ or
 
 ##### Q1: Can you describe your latest performance solving issue? What was the problem? How did you fix and how much time did you spent solving it?
 
-I obviously can't go into details of this specific use case, but I had to parse big XY document in NN resources. This document is getting "bigger" every time an event happens and it was fetched and parsed when user logged in. The problem was that it took too long to parse and users left application because they thought that something went wrong. 
-The important thing to know is that the document is divided into Sections and it's changed only at 01:00 CEST. 
-I implemented solution where:
-+ we fetch only metadata and from metadata we can see if the document was changed today (one check per day) 
-+ we store NN resources locally, so if there're no changes already parsed data is fetched from our repository 
-+ When a document is parsed I implemented multithreading. Each Section is processed separately.
-
-I spend about two days on this (most of the time for metadata fetch).
+We had a problem when we were fetching users. We were only able to fetch all users from specific organisation and then we had to loop through all users to get wanted one. I added field to user that enabled us to perform search that returned single user. 
 
 ##### Q2: How do you manage conflicts in web applications when different user are managing and working on data concurrently?
+
 If I could assumes that multiple transactions can frequently complete without interfering with each other I would use Optimistic concurrency control (https://en.wikipedia.org/wiki/Optimistic_concurrency_control). For general conflict menagment I would use "Semaphore" (https://en.wikipedia.org/wiki/Semaphore_(programming)). 
 But in practice this differs from case to case and I would choose algorithm best suited for specific type of usecase.
 
 ##### Q3: Can you describe your idea of design (architecture) on how to make a big scale e-commerce website with at least 100K concurrent users.
 I would use IDP, something like https://www.keycloak.org/ to handle users (registration, login,...). 
-I would separate frontend and backend (each on its own servers). For frontend and backend I would implement load balancer and that would enable me to add servers as the website would grow.
+I would separate frontend and backend (each on its own servers). For frontend and backend I would implement load balancer and that would enable me to add servers as the website would grow. I don't have much experience in this field. Design I described is the only one I ever encountered and was used on project that is expected to have up to 3mil users so I think it should work fine. 
