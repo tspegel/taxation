@@ -14,5 +14,4 @@ public class TaxationInput {
     private String traderId;
     private String playedAmount;
     private String odd;
-
 }
