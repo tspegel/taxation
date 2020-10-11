@@ -11,10 +11,9 @@ import lombok.Setter;
 @AllArgsConstructor
 public class TaxationOutput {
 
-    private String possibleReturnAmount;
-    private String possibleReturnAmountBefTax;
-    private String possibleReturnAmountAfterTax;
-    private String taxRate;
-    private String taxAmount;
-
+    private double possibleReturnAmount;
+    private double possibleReturnAmountBefTax;
+    private double possibleReturnAmountAfterTax;
+    private double taxRate;
+    private double taxAmount;
 }
