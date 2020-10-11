@@ -48,13 +48,13 @@ or
 #### Odd: 1.5
 
 ##### Type: General, Method: Rate 
-```POST http://localhost:8080/taxation/taxation-calculatortraderId=1&playedAmount=5&odd=1.5```
+```POST http://localhost:8080/taxation/taxation-calculator?traderId=1&playedAmount=5&odd=1.5```
 ##### Type: General, Method: Amount 
-```POST http://localhost:8080/taxation/taxation-calculatortraderId=2&playedAmount=5&odd=1.5```
+```POST http://localhost:8080/taxation/taxation-calculator?traderId=2&playedAmount=5&odd=1.5```
 ##### Type: Winning, Method: Rate 
-```POST http://localhost:8080/taxation/taxation-calculatortraderId=3&playedAmount=5&odd=1.5```
+```POST http://localhost:8080/taxation/taxation-calculator?traderId=3&playedAmount=5&odd=1.5```
 ##### Type: Winning, Method: Amount 
-```POST http://localhost:8080/taxation/taxation-calculatortraderId=4&playedAmount=5&odd=1.5```
+```POST http://localhost:8080/taxation/taxation-calculator?traderId=4&playedAmount=5&odd=1.5```
 
 ### Footnote
 + Debug port is open on 8787
